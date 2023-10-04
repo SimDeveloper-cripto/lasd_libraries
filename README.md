@@ -10,12 +10,12 @@ The project I am showing you is a grouping of all the tests (five) that I have c
 I wrote some sample code to show what my library is capable of (the example is for HashTables 'cause It is the one I cared the most about). <br />
 The whole project has been developed in Linux environment.
 
-### Tutorial: Code your personal test
+## Tutorial: Code your personal test
 I provided for you an entire folder dedicated to your personal test. <br />
 In user-test/usertest.hpp there is everything you'll need, including all the libraries. <br />
 Your code has to be written inside the namespace at user-test/usertest.cpp. Have fun! <br />
 
-### Compile and Execute your code
+### Compile and Execute your code in Linux
 ```sh
 chmod +x build.sh
 ./build.sh
