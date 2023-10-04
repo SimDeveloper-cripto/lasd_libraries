@@ -8,7 +8,7 @@ I am a computer science student currently studying at the University of Naples F
 ## Quick explanation of the project
 The project I am showing you is a grouping of all the tests (five) that I have carried out for the examination of algorithms and data structures. <br />
 I wrote some sample code to show what my library is capable of (the example is for HashTables 'cause It is the one I cared the most about). <br />
-The whole project has been developed in Linux environment.
+The whole project was developed in Linux environment (Linux Mint and Ubuntu).
 
 ## Tutorial: Code your personal test
 I provided for you an entire folder dedicated to your personal test. <br />
