@@ -2,6 +2,8 @@
 #ifndef HASHTABLE_HPP
 #define HASHTABLE_HPP
 
+/* DUPLICATED VALUES ARE NOT ACCEPTED */
+
 /* ************************************************************************** */
 
 #include <random>

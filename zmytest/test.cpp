@@ -7,7 +7,7 @@ using namespace lasd;
 
 template<typename Data>
 void printHash(Data& data, void* other_par) {
-    cout << "Valore: " << setprecision(20) << data << endl;
+    cout << "Value: " << setprecision(20) << data << endl;
 }
 
 template<typename Data>
@@ -17,7 +17,7 @@ template<>
 void fold<int>(const int& data, const void* limit, void* accum) {
     if (data < (*(int*) limit)) {
         (*(int*) accum) *= data;
-        std::cout << std::endl << "Accumulatore: " << (*(int*) accum);
+        std::cout << std::endl << "Accumulated value: " << (*(int*) accum);
     } else {
         (*(int*) accum) *= 1;
     }
@@ -27,7 +27,7 @@ template<>
 void fold<double>(const double& data, const void* limit, void* accum) {
     if (data > (*(int*) limit)) {
         (*(double*) accum) += data;
-        std::cout << std::endl << "Accumulatore: " << setprecision(20) << (*(double*) accum);
+        std::cout << std::endl << "Accumulated value: " << setprecision(20) << (*(double*) accum);
     } else {
         (*(double*) accum) += 0.0; 
     }
@@ -37,7 +37,7 @@ template<>
 void fold<string>(const string& data, const void* limit, void* accum) {
     if (data.length() <= (*(uint*) limit)) {
         (*(string*) accum) += data; 
-        cout << endl << "Accumulatore: " << (*(string*) accum);
+        cout << endl << "Accumulated value: " << (*(string*) accum);
     } else {
         (*(string*) accum) += "";
     }
@@ -46,9 +46,9 @@ void fold<string>(const string& data, const void* limit, void* accum) {
 int getHashImplType() {
     int impltype = 0;
     while(impltype < 1 || impltype > 2) {
-        cout << endl << "[1] Per scegliere HashTable con indirizzamento chiuso." << endl;
-        cout << "[2] Per scegliere HashTable con indirizzamento aperto." << endl;
-        cout << "Scelta: ";
+        cout << endl << "[1] Choose HashTable with closed addressing." << endl;
+        cout << "[2] Choose HashTable with open addressing." << endl;
+        cout << "Your choice: ";
         cin >> impltype;
     }
     return impltype;
@@ -56,10 +56,10 @@ int getHashImplType() {
 
 int getHashSize() {
     int size = 0;
-    while (cout << "Determinare la dimensione della struttura: " && !(cin >> size)) {
+    while (cout << "Define structure dimension (size): " && !(cin >> size)) {
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        cout << "Errore: input non intero, ripetere!" << endl;
+        cout << "Error: non integer input, retry!" << endl;
     }
     return size; 
 }
@@ -67,10 +67,10 @@ int getHashSize() {
 int getHashTypeData(){
     int typedata = 0;
     while(typedata < 1 || typedata > 3) {
-        cout << endl << "[1] Per scegliere lavorare con interi." << endl;
-        cout << "[2] Per scegliere lavorare con double." << endl;
-        cout << "[3] Per scegliere lavorare con stringhe." << endl;
-        cout << "Scelta: "; 
+        cout << endl << "[1] Use integer values." << endl;
+        cout << "[2] Use double values." << endl;
+        cout << "[3] Use string values." << endl;
+        cout << "Your choice: ";
         cin >> typedata;
     }
     return typedata;
@@ -88,7 +88,7 @@ Vector<int> generateRandom(int size) {
 
     for (int i = 0; i < size; ++i) {
         int value = dist(generator);
-        cout << "Ho generato il valore: " << value << endl;
+        cout << "Generated value: " << value << endl;
         vec.operator[](i) = value;
     }
     return vec;
@@ -103,7 +103,7 @@ Vector<double> generateRandom(int size) {
 
     for (int i = 0; i < size; ++i) {
         double value = dist(generator);
-        cout << "Ho generato il valore: " << setprecision(20) << value << endl;
+        cout << "Generated value: " << setprecision(20) << value << endl;
         vec.operator[](i) = value;
     }
     return vec;
@@ -129,7 +129,7 @@ Vector<string> generateRandom(int size) {
     Vector<string> vec = Vector<string>(size);;
     for(int i = 0; i < size; ++i) {
         string value = generateRandomString();
-        cout << "Ho generato il valore: " << value << endl;
+        cout << "Generated value: " << value << endl;
         vec.operator[](i) = value;
     }
     return vec;
@@ -147,12 +147,12 @@ template<typename Data>
 void ifExists(TestableContainer<Data>& container) {
     Data to_search;
 
-    while (cout << "Dichiarare il valore di cui determinare la presenza: " && !(cin >> to_search)) {
+    while (cout << "Define what value you want to search: " && !(cin >> to_search)) {
         cin.clear(); 
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        cout << "Errore: valore non accettabile per la struttura, ripetere!" << endl;
+        cout << "Error: input not acceptable, retry!" << endl;
     }
-    string output = container.Exists(to_search) ? ("L'elemento esiste nella struttura!") : ("L'elemento non esiste nella struttura!");
+    string output = container.Exists(to_search) ? ("Element is present!") : ("Element is not present!");
     cout << endl << output << endl;
 }
 
@@ -160,12 +160,12 @@ template<typename Data>
 void InsertElement(HashTable<Data>& hash) {
     Data elem;
 
-    while (cout << endl << "Dichiarare il valore da inserire: " && !(cin >> elem)) {
+    while (cout << endl << "Define what you want to insert: " && !(cin >> elem)) {
         cin.clear(); 
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        cout << "Errore: valore non accettabile per la struttura, ripetere!" << endl;
+        cout << "Error: input not acceptable, retry!" << endl;
     }
-    string output = (hash.Insert(elem)) ? ("L' elemento è stato inserito!") : ("L'elemento non è stato inserito!");
+    string output = (hash.Insert(elem)) ? ("Element inserted correctly!") : ("Could not insert element!");
     cout << endl << output;
 }
 
@@ -173,21 +173,21 @@ template<typename Data>
 void RemoveElement(HashTable<Data>& hash) {
     Data elem;
 
-    while (cout << endl << "Dichiarare il valore da rimuovere: " && !(cin >> elem)) {
+    while (cout << endl << "Define what you want to remove: " && !(cin >> elem)) {
         cin.clear(); 
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        cout << "Errore: valore non accettabile per la struttura, ripetere!" << endl;
+        cout << "Error: input not acceptable, retry!" << endl;
     }
-    string output = (hash.Remove(elem)) ? ("L' elemento è stato rimosso!") : ("L'elemento non è stato rimosso!");
+    string output = (hash.Remove(elem)) ? ("Element removed successfully!") : ("Could not remove element!");
     cout << endl << output;
 }
 
 int getNumber() {
     double n;
-    while(cout << endl << "Digitare il numero secondo cui applicare la funzione: " && !(cin >> n)) {
+    while(cout << endl << "Enter the number by which to apply the function: " && !(cin >> n)) {
         cin.clear(); 
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        cout << "Errore: valore non accettabile!" << endl;
+        cout << "Error: input not acceptable, retry!" << endl;
     } 
     return (int) n;
 }
@@ -195,15 +195,15 @@ int getNumber() {
 template<typename Data>
 void exampleTest(HashTable<Data>& hash, Data& first_element_typedata) {
     ushort choice = 0;
-    cout << endl << "[0] Per tornare indietro e testare altro esempio."         << endl;
-    cout << "[1] Per visualizzare la struttura tramite funzione Map."           << endl;
-    cout << "[2] Per effetturare test di esistenza di un elemento."             << endl;
-    cout << "[3] Per applicare alla struttura la sua rispettiva funzione Fold." << endl;
-    cout << "[4] Per inserire un elemento."                                     << endl;
-    cout << "[5] Per eliminare un elemento."                                    << endl;
-    cout << "[6] Per effettuare il Clear della struttura."                      << endl;
-    cout << "[7] Per stampare la dimensione della struttura."                   << endl;
-    cout << "Scelta: ";
+    cout << endl << "[0] Go back and try another example." << endl;
+    cout << "[1] Visualize structure using Map."           << endl;
+    cout << "[2] Try membership test."                     << endl;
+    cout << "[3] Apply to structure its Fold function."    << endl;
+    cout << "[4] Insert element."                          << endl;
+    cout << "[5] Remove element."                          << endl;
+    cout << "[6] Clear the structure."                     << endl;
+    cout << "[7] Print size of the structure."             << endl;
+    cout << "Your choice: ";
     cin >> choice;
 
     switch(choice) {
@@ -211,7 +211,7 @@ void exampleTest(HashTable<Data>& hash, Data& first_element_typedata) {
             startTest();
             break;
         } case 1: {
-            cout << endl << "(Map Pre-Order) Stampa della struttura: " << endl;
+            cout << endl << "(Map Pre-Order, Print) Here is the structure: " << endl;
             hash.Map(&printHash<Data>, nullptr);
             exampleTest(hash, first_element_typedata);
             break;
@@ -228,18 +228,18 @@ void exampleTest(HashTable<Data>& hash, Data& first_element_typedata) {
 
             if (isInteger(first_element_typedata)) {
                 int start = 1;
-                cout << "(Fold Pre-Order) Prodotto per gli interi minori di n:";
+                cout << "(Fold Pre-Order) Product for integers less than n:";
                 hash.Fold(&fold<Data>, &n, &start);
             } else if (isDouble(first_element_typedata)) {
                 double start = 0.0;
-                cout << "(Fold Pre-Order) Somma per i double maggiori di n:";
+                cout << "(Fold Pre-Order) Sum for doubles greater than n:";
                 hash.Fold(&fold<Data>, &n, &start);
             } else if (isString(first_element_typedata)) {
                 string start = "";
-                cout << "(Fold Pre-Order) Concatenazione per le stringhe con lunghezza minore o uguale a n:";
+                cout << "(Fold Pre-Order) Concatenation for strings with length less than or equal to n:";
                 hash.Fold(&fold<Data>, &n, &start);
             }
-            
+
             cout << endl;
             exampleTest(hash, first_element_typedata);
             break;
@@ -258,17 +258,17 @@ void exampleTest(HashTable<Data>& hash, Data& first_element_typedata) {
         }
         case 6: {
             hash.Clear();
-            cout << endl << "La struttura ora è vuota!" << endl; 
+            cout << endl << "HashTable is now empty!" << endl;
             exampleTest(hash, first_element_typedata);
             break;
         }
         case 7: {
-            cout << endl << "Dimensione della struttura: " << hash.Size() << endl;
+            cout << endl << "(Number of elements) HashTable's size: " << hash.Size() << endl;
             exampleTest(hash, first_element_typedata);
             break;
         }
         default: 
-            cout << "Errore: scelta non disponibile!" << endl;
+            cout << "Error: not a valid input!" << endl;
     }
 }
 
@@ -281,8 +281,8 @@ void startTest() {
     int structsize = getHashSize();
 
     while (structsize <= 0) {
-        cout << "Per puro scopo dimostrativo, la dimensione della struttura non può essere minore o uguale a 0." << endl 
-            << "(L'hashtable è inizializzata tramite lista)." << endl;
+        cout << "For demonstration purposes only, the structure size cannot be less than or equal to 0." << endl 
+            << "(The HashTable is initialized via List)." << endl;
         structsize = getHashSize();
     }
 

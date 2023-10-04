@@ -1,20 +1,26 @@
-# OVERVIEW
+# Overview
 This project presents a set of libraries, each of which is related to the implementation of a specific data structure.
 
-## INTRODUCTION
+## Introduction
 Hello! My name is Simone Catapano (Naples, Italy) and by the time I am writing this I am 21 years old. <br />
-If you haven't read my bio, know that I am a computer science student currently studying at the University of Naples Federico II.
+I am a computer science student currently studying at the University of Naples Federico II.
 
-## QUICK EXPLANATION OF THE PROJECT
+## Quick explanation of the project
 The project I am showing you is a grouping of all the tests (five) that I have carried out for the examination of algorithms and data structures. <br />
-You can find all the code in the master branch and, I also wrote some sample code to show what my library is capable of (the example is for Hash Tables just because my professor cared a lot about this specific library). <br />
-The whole project has been developed in Linux environment (Linux Mint 21 Cinnamon).
+I wrote some sample code to show what my library is capable of (the example is for HashTables 'cause It is the one I cared the most about). <br />
+The whole project has been developed in Linux environment.
 
-### Test the library
-```console
-$ chmod +x build.sh
-$ ./build.sh
-$ ./main
+### Tutorial: Code your personal test
+I provided for you an entire folder dedicated to your personal test. <br />
+In user-test/usertest.hpp there is everything you'll need, including all the libraries. <br />
+Your code has to be written inside the namespace at user-test/usertest.cpp. Have fun! <br />
+
+### Compile and Execute your code
+```sh
+chmod +x build.sh
+./build.sh
+cd bin
+./main # Press '3' If you want to run your personal test!
 ```
 
 ## LICENSE

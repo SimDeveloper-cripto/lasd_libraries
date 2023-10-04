@@ -32,9 +32,9 @@ protected:
 
   /*
     Vettore delle flag:
-      (0) indica che il dato non è presente.
-      (1) indica che il dato era presente ma è stato cancellato.
-      (2) indica che il dato è presente.
+      (0) Value is not present.
+      (1) The value searched was there, but It has been removed.
+      (2) Value is present.
   */
 
 public:

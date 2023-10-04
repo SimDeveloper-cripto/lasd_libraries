@@ -35,7 +35,7 @@ lasd::Vector<double> generateRandom(int);
 template<>
 lasd::Vector<std::string> generateRandom(int);
 
-// TYPE-CHECKING DEI DATI PER LE STRUTTURE
+// TYPE-CHECKING
 template<typename Data>
 Data& getTypeData(Data& d) { return d; }
 
