@@ -164,5 +164,41 @@ inline void Vector<Data>::FoldPostOrder(FoldFunctor funct, const void* par, void
 }
 
 /* ************************************************************************** */
+// SECTION DEDICATED TO SORTING ALGORITHMS
+
+template <typename Data>
+void Vector<Data>::InsertionSort() {
+    for (int j = 1; j < size; j++) {
+        Data key = Elements[j];
+        int i = j - 1;
+        while (i >= 0 && key < Elements[i]) {
+            Elements[i + 1] = Elements[i];    
+            i = i - 1;
+        }
+        Elements[i + 1] = key;
+    }
+}
+
+template <typename Data>
+int Vector<Data>::FindMax(const int limit) {
+    int max = 0;
+    for (int i = 1; i <= limit; i++) {
+        if (Elements[i] > Elements[max]) max = i;
+    }
+    return max;
+}
+
+template <typename Data>
+void Vector<Data>::SelectionSort() {
+    for (int j = size; j >= 1; j--) {
+        int max = FindMax(j);
+
+        Data temp = Elements[j];
+        Elements[j] = Elements[max];
+        Elements[max] = temp;
+    }
+}
+
+/* ************************************************************************** */
 
 }

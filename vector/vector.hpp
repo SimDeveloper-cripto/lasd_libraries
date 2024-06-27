@@ -87,6 +87,20 @@ public:
 
   // Specific member functions (inherited from PostOrderFoldableContainer)
   void FoldPostOrder(FoldFunctor, const void*, void*) const override; // Override FoldableContainer member
+
+  /* ************************************************************************** */
+  // SECTION DEDICATED TO SORTING ALGORITHMS
+
+  int FindMax(const int limit); // Helper function
+
+  void InsertionSort();
+  void SelectionSort();
+  // void MergeSort();
+  // void QuickSort();
+  // void HeapSort();
+
+  /* ************************************************************************** */
+
 };
 
 /* ************************************************************************** */
