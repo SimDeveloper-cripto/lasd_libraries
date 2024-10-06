@@ -103,7 +103,7 @@ typename BinaryTreeLnk<Data>::NodeLnk* BinaryTreeLnk<Data>::copiaAlbero(NodeLnk*
 
 template<typename Data>
 BinaryTreeLnk<Data>::BinaryTreeLnk(const LinearContainer<Data>& lc) {
-    if( !lc.Empty() ) {   
+    if( !lc.Empty() ) {
         size = lc.Size(); 
         root = new BinaryTreeLnk<Data>::NodeLnk(lc[0]);
         versaLinearContainerInBinaryTree(0, root, lc);    
@@ -170,6 +170,18 @@ void BinaryTreeLnk<Data>::Clear(){
     size = 0;
     delete root;
     root = nullptr;
+}
+
+template<typename Data>
+void BinaryTreeLnk<Data>::Reverse(BinaryTreeLnk<Data>::NodeLnk* root) noexcept {
+    if (root == nullptr) return;
+
+    NodeLnk* temp    = root->leftchild;;
+    root->leftchild  = root->rightchild;
+    root->rightchild = temp;
+
+    if (root->HasLeftChild())  Reverse(root->leftchild);
+    if (root->HasRightChild()) Reverse(root->rightchild);
 }
 
 /* ************************************************************************** */

@@ -3,6 +3,7 @@
         "iomanip": "cpp",
         "ostream": "cpp",
         "*.tcc": "cpp",
-        "limits": "cpp"
+        "limits": "cpp",
+        "stdexcept": "cpp"
     }
 }

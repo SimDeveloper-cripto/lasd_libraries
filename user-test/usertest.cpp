@@ -3,7 +3,7 @@
 #include <iostream>
 #include "usertest.hpp"
 
-using namespace lasd; // Every data structure is defined inside "lasd" namespace
+using namespace lasd; // Each Data Structure is defined inside "lasd" namespace
 
 int generate_random_number() {
     std::default_random_engine generator(std::random_device{}());
@@ -17,6 +17,7 @@ namespace usertest {
 
         /* [INSERT YOUR CODE HERE] */
 
+/* (THIS WAS AN OLD TEST MADE FOR SORTING ALGORITHMS)
         Vector<int>* vec = new Vector<int>(10);
         for (int i = 0; i < 10; i++) {
             vec->operator[](i) = generate_random_number();
@@ -32,7 +33,18 @@ namespace usertest {
 
         std::cout << std::endl;
         delete vec;
+*/
 
+        Vector<int>* vec = new Vector<int>(10);
+        for (int i = 0; i < 10; i++) {
+            vec->operator[](i) = generate_random_number();
+        }
+
+        // Initialize BTLink with the LinearContainer (a Vector in this case)
+        BinaryTreeLnk<int> bt(*vec);
+        delete vec;
+
+        bt.Reverse(&bt.Root());
         /* [END] */
     }
 }

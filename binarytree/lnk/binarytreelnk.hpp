@@ -13,7 +13,7 @@ namespace lasd {
 /* ************************************************************************** */
 
 template <typename Data>
-class BinaryTreeLnk : virtual public BinaryTree<Data> { 
+class BinaryTreeLnk : virtual public BinaryTree<Data> {
 
 private:
 
@@ -33,7 +33,7 @@ protected:
 
     // COSTRUTTORE
     NodeLnk(const Data&);
-    
+  
     // DISTRUTTORE
     virtual ~NodeLnk();
 
@@ -97,6 +97,9 @@ public:
 
   // Specific member functions (inherited from Container)
   void Clear() override; // Override Container member
+
+  // A BinaryTree can be Reversed!
+  void Reverse(BinaryTreeLnk<Data>::NodeLnk*) noexcept;
 };
 
 /* ************************************************************************** */

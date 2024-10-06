@@ -95,6 +95,8 @@ public:
 
   void InsertionSort();
   void SelectionSort();
+
+  // TODO: FINISH IMPLEMENTATION OF SORTING ALGORITHMS!
   // void MergeSort();
   // void QuickSort();
   // void HeapSort();
