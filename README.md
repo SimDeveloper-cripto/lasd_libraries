@@ -20,9 +20,11 @@ Your code has to be written inside the namespace at __user-test/usertest.cpp__. 
 chmod +x build.sh
 ./build.sh
 cd bin
-./main # Press '3' If you want to run your personal test!
+./main # Press '3' to run your personal test!
 ```
 
 ## LICENSE
 
 [MIT](https://choosealicense.com/licenses/mit/)
+
+Copyright © 2024 Simone Catapano "SimDeveloper-cripto".
