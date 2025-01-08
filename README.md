@@ -12,8 +12,8 @@ The whole project was developed in Linux environment (Linux Mint and Ubuntu).
 
 ## Tutorial: Code your personal test
 I provided for you an entire folder dedicated to your personal test. <br />
-In user-test/usertest.hpp there is everything you'll need, including all the libraries. <br />
-Your code has to be written inside the namespace at user-test/usertest.cpp. Have fun! <br />
+In __user-test/usertest.hpp__ there is everything you'll need, including all the libraries. <br />
+Your code has to be written inside the namespace at __user-test/usertest.cpp__. Have fun! <br />
 
 ### Compile and Execute your code in Linux
 ```sh
